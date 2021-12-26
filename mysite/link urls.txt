@@ -1,0 +1,4 @@
+https://css-tricks.com/snippets/css/typewriter-effect/    --css animated effects.
+https://codeconvey.com/html-typing-text-effect-animation-css/  
+https://codeconvey.com/category/css-animation/
+https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp

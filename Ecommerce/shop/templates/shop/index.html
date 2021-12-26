@@ -1,0 +1,119 @@
+{% extends 'shop/basic.html' %}
+{% block css %}
+table,
+th,
+td {
+  border: 1px solid black;
+}
+{% endblock css %}
+
+{% block title %} shop app {% endblock title %}
+   
+{% block body %}
+
+{% load static %}
+	<!-- carousel items -->
+	<div
+	  id="carouselExampleIndicators"
+	  class="carousel carousel-dark slide"
+	  data-bs-ride="carousel"
+	  style="display: flex; justify-content: center; margin: 20px"
+	>
+	  <div class="carousel-indicators" style="margin-top: 50px">
+		<button
+		  type="button"
+		  data-bs-target="#carouselExampleIndicators"
+		  data-bs-slide-to="0"
+		  class="active"
+		  aria-current="true"
+		></button>
+		{% for i in range %}
+		<button
+		  type="button"
+		  data-bs-target="#carouselExampleIndicators"
+		  data-bs-slide-to="{{i}}"
+		></button>
+		{% endfor %}
+	  </div>
+
+	  <div class="carousel-inner" style="width: 75%; margin: 0px, auto">
+
+		<div class="carousel-item active">
+		  <!-- Card Items -->
+		  <div class="row row-cols-1 row-cols-md-4 g-4">
+
+			{% for i in products %}
+			<div class="col">
+			  <div class="card">
+				<img src="/media/{{i.product_image}}" class="card-img-top" alt="..."/>
+				<div class="card-body">
+				  <h5 class="card-title">{{i.product_name}}</h5>
+				  <p class="card-text">{{i.product_description}}</p>
+				  <a href="#"><button type="button" class="btn btn-outline-info">Add to Cart</button></a> <span>Price:&#x20B9;{{i.product_price}}</span>
+				</div>
+			  </div>
+			</div>
+			{% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+			</div> </div> <div class="carousel-item"> <div class="row row-cols-1 row-cols-md-4 g-4">
+			{% endif %}
+			{% endfor %}
+		</div>
+		</div>
+
+	  </div>
+	  <button
+		class="carousel-control-prev"
+		type="button"
+		data-bs-target="#carouselExampleIndicators"
+		data-bs-slide="prev"
+	  >
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Previous</span>
+	  </button>
+	  <button
+		class="carousel-control-next"
+		type="button"
+		data-bs-target="#carouselExampleIndicators"
+		data-bs-slide="next"
+	  >
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Next</span>
+	  </button>
+	</div>
+
+	<!-- <hr />
+	<hr />
+	<h2>Products Details</h2>
+	<br /> -->
+<!-- 
+	<table style="width: 100%">
+	  <tr>
+		<th>NAME</th>
+		<th>DESCRIPTION</th>
+		<th>CATAGORY</th>
+		<th>SUB-CATAGORY</th>
+		<th>PRICE(RS)</th>
+		<th>PUBLICTION DATE</th>
+		<th>IMAGES</th>
+	  </tr>
+	  {% for item in products %}
+	  <tr>
+		<td>{{ item.product_name }}</td>
+		<td>{{ item.product_description }}</td>
+		<td>{{ item.product_catagory }}</td>
+		<td>{{ item.product_subCatagory }}</td>
+		<td>{{ item.product_price }}</td>
+		<td>{{ item.product_publicationDate }}</td>
+		<td>
+		  <img
+			src="http://127.0.0.1:8000/media/{{ item.product_image }}"
+			width="150px"
+			height="100px"
+			alt="product image"
+		  />
+		</td>
+	  </tr>
+	  {% endfor %}
+	</table> -->
+
+	{% endblock body %}

@@ -1,0 +1,6 @@
+Hello admin,
+    This is from your django developers.We are work hard for your website. We want some payment for our family.
+    We hope you understand our setuation.
+
+Thanking you,
+    Your developers.
